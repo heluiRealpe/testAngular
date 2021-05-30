@@ -42,8 +42,8 @@ export class DiscoService {
     });
   }
 
-  borrarDisco(disco: Disco): any {
-    return this.http.put(this.url, disco).subscribe( (result: any) => {
+  borrarDisco(id: string): any {
+    return this.http.delete(`${this.url}?id=${id}`).subscribe( (result: any) => {
       console.table(result);
     });
   }
