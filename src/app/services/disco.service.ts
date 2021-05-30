@@ -22,7 +22,6 @@ export class DiscoService {
     });
   }
 
-
   obtenerDisco(id: string): any {
     this.http.get(`${this.url}?id=${id}`).subscribe( (result: any) => {
       this.discos = result;
@@ -36,4 +35,17 @@ export class DiscoService {
       this.discos.push(result);
     });
   }
+
+  actualizarDisco(disco: Disco): any {
+    return this.http.put(this.url, disco).subscribe( (result: any) => {
+      console.table(result);
+    });
+  }
+
+  borrarDisco(disco: Disco): any {
+    return this.http.put(this.url, disco).subscribe( (result: any) => {
+      console.table(result);
+    });
+  }
+
 }

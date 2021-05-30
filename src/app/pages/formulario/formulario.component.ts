@@ -17,7 +17,15 @@ export class FormularioComponent implements OnInit {
     this.apiService.añadirDisco(discoNew);
   }
 
-  
+  editDisco(id: string, titulo: string, interprete: string, anyoPublicacion: string): void {
+    let discoMod = new Disco(id, titulo, interprete, anyoPublicacion);
+    this.apiService.actualizarDisco(discoMod);
+   }
+
+   eraseDisco(id: string, titulo: string, interprete: string, anyoPublicacion: string) {
+     let disco = new Disco(id, titulo, interprete, anyoPublicacion)
+     this.apiService.borrarDisco(disco);
+   }
 
   ngOnInit(): void {
   }
