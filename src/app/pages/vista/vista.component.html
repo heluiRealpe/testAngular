@@ -1,1 +1,27 @@
-<p>vista works!</p>
+<div class="d-grid gap-2 col-3 mx-auto">
+    <div class="form-floating col-7 mx-auto">
+        <input type="number" class="form-control"  style="text-align: center; margin-top: 20px;" #id>
+        <label style="margin-top: 20px;">INSERTA ID</label>
+    </div>
+    <button type="button" class="btn btn-primary btn-md" style="margin-top: 20px;" (click)="mostrarDiscos()">MOSTRAR</button>
+</div>
+<div class="container-sm col-6 mx-auto" style="margin-top: 20px;">
+    <table class="table table-dark table-striped"  style="margin-top: 20px;">
+        <thead>
+        <tr>
+            <th scope="col">ID</th>
+            <th scope="col">TÍTULO</th>
+            <th scope="col">INTERPRETE</th>
+            <th scope="col">AÑO DE PUBLICACIÓN</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let disco of discos;">
+            <td>{{disco.id}}</td>
+            <td>{{disco.titulo}}</td>
+            <td>{{disco.interprete}}</td>
+            <td>{{disco.anyoPublicacion}}</td>
+        </tr>
+        </tbody>
+    </table>
+</div>
