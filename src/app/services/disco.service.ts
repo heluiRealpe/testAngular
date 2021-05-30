@@ -8,14 +8,32 @@ import { Disco } from 'src/app/models/disco';
 export class DiscoService {
 
   private url = 'http://localhost:3000/discos';
+  public discos: Disco[];
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {
+    this.discos = [];
+   }
 
-  obtenerDisco() {
-    return this.http.get(this.url);
+  obtenerDiscos(): any {
+    this.http.get(this.url).subscribe( (result: any) => {
+      this.discos = result;
+      console.table(result);
+      return this.discos;
+    });
   }
 
-//   obtenerDiscos(id: string) {
-//     return this.http.get(`${this.url}?id=${id}`);
-//   }
+
+  obtenerDisco(id: string): any {
+    this.http.get(`${this.url}?id=${id}`).subscribe( (result: any) => {
+      this.discos = result;
+      console.table(result);
+      return this.discos;
+    });
+  }
+
+  añadirDisco(disco: Disco): any {
+    return this.http.post(this.url, disco).subscribe( (result: any) => {
+      this.discos.push(result);
+    });
+  }
 }

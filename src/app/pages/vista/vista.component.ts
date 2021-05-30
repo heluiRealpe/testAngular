@@ -9,33 +9,19 @@ import { Disco } from 'src/app/models/disco';
 })
 export class VistaComponent implements OnInit {
 
-  public discos: Disco[];
+  public discosVista : Disco[];
 
   constructor(private apiService: DiscoService) {
-    this.discos = [];
+    this.discosVista = this.apiService.obtenerDiscos();
    }
 
-  mostrarDiscos(): void {
-      this.apiService.obtenerDisco().subscribe( (result: any) => {
-        this.discos = result;
-        console.log(result);
-      });
+  mostrarDiscos(id: string): void {
+    if(id === undefined) {
+      this.discosVista = this.apiService.obtenerDiscos();
+    } else {
+      this.discosVista = this.apiService.obtenerDisco(id);
+    }
   }
-
-  // mostrarDiscos(id: string): void {
-  //   console.log(id);
-  //   if(id == null) {
-  //     this.apiService.obtenerDisco().subscribe( (result: any) => {
-  //       this.discos = result;
-  //       console.log(result);
-  //     });
-  //   } else {
-  //     this.apiService.obtenerDiscos(id).subscribe( (result: any) => {
-  //       this.discos = result;
-  //       console.log(result);
-  //     });
-  //   }
-  // }
 
   ngOnInit(): void {
   }

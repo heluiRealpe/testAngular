@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { DiscoService } from 'src/app/services/disco.service';
+import { Disco } from 'src/app/models/disco';
 
 @Component({
   selector: 'app-formulario',
@@ -7,7 +9,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FormularioComponent implements OnInit {
 
-  constructor() { }
+  constructor(private apiService: DiscoService) { }
+
+  anyadirDisco(id: string, titulo: string, interprete: string, anyoPublicacion: string): void {
+    let discoNew = new Disco(id, titulo, interprete, anyoPublicacion);
+    console.log(discoNew);
+    this.apiService.añadirDisco(discoNew);
+  }
+
+  
 
   ngOnInit(): void {
   }

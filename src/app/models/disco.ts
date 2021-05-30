@@ -1,10 +1,10 @@
 export class Disco {
-    public id : number;
+    public id : string;
     public titulo: string;
     public interprete: string;
-    public anyoPublicacion: number;
+    public anyoPublicacion: string;
 
-    constructor(id: number, titulo: string, interprete: string, anyoPublicacion: number) {
+    constructor(id: string, titulo: string, interprete: string, anyoPublicacion: string) {
         this.id = id;
         this.titulo = titulo;
         this.interprete = interprete;
