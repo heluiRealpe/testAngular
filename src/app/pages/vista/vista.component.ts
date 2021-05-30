@@ -9,17 +9,24 @@ import { Disco } from 'src/app/models/disco';
 })
 export class VistaComponent implements OnInit {
 
-  public discosVista : Disco[];
+  public discosVista: Disco[];
 
   constructor(private apiService: DiscoService) {
-    this.discosVista = this.apiService.obtenerDiscos();
+    this.discosVista = [];
+    this.apiService.obtenerDiscos().subscribe( (result: Disco[]) => {
+      this.discosVista = result;
+      });
    }
 
   mostrarDiscos(id: string): void {
-    if(id === undefined) {
-      this.discosVista = this.apiService.obtenerDiscos();
+    if(id == undefined) {
+      this.apiService.obtenerDiscos().subscribe( (result: Disco[]) => {
+        this.discosVista = result;
+        });
     } else {
-      this.discosVista = this.apiService.obtenerDisco(id);
+      this.apiService.obtenerDisco(id).subscribe( (result: Disco[]) => {
+        this.discosVista = result;
+        });
     }
   }
 

@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Disco } from 'src/app/models/disco';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -14,20 +15,12 @@ export class DiscoService {
     this.discos = [];
    }
 
-  obtenerDiscos(): any {
-    this.http.get(this.url).subscribe( (result: any) => {
-      this.discos = result;
-      console.table(result);
-      return this.discos;
-    });
+  obtenerDiscos(): Observable<any> {
+    return this.http.get(this.url);
   }
 
-  obtenerDisco(id: string): any {
-    this.http.get(`${this.url}?id=${id}`).subscribe( (result: any) => {
-      this.discos = result;
-      console.table(result);
-      return this.discos;
-    });
+  obtenerDisco(id: string): Observable<any> {
+    return this.http.get(`${this.url}?id=${id}`);
   }
 
   añadirDisco(disco: Disco): any {

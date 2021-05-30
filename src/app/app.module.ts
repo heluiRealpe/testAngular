@@ -6,12 +6,14 @@ import { AppComponent } from './app.component';
 import { FormularioComponent } from './pages/formulario/formulario.component';
 import { VistaComponent } from './pages/vista/vista.component';
 import { HttpClientModule } from '@angular/common/http';
+import { HomeComponent } from './pages/home/home.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     FormularioComponent,
-    VistaComponent
+    VistaComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
