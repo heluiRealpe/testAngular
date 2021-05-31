@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Disco } from 'src/app/models/disco';
 import { Observable } from 'rxjs';
 
@@ -25,7 +25,7 @@ export class DiscoService {
 
   añadirDisco(disco: Disco): any {
     return this.http.post(this.url, disco).subscribe( (result: any) => {
-      this.discos.push(result);
+      console.log(result);
     });
   }
 
@@ -36,9 +36,12 @@ export class DiscoService {
   }
 
   borrarDisco(id: string): any {
-    return this.http.delete(`${this.url}?id=${id}`).subscribe( (result: any) => {
-      console.table(result);
-    });
+    // return this.http.delete(this.url, { headers: new HttpHeaders({'Content-Type': 'application/json'}), body: { id: id}}).subscribe( (result: any) => {
+    //   console.table(result);
+    // });
+    // return this.http.delete(`${this.url}?id=${id}`, ).subscribe( (result: any) => {
+    //   console.table(result);
+    // });
   }
 
 }
