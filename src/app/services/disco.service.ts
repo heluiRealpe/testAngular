@@ -40,9 +40,5 @@ export class DiscoService {
     return this.http.delete(this.url, options).subscribe( (result: any) => {
       console.table(result);
     });
-    // return this.http.delete(`${this.url}?id=${id}`, ).subscribe( (result: any) => {
-    //   console.table(result);
-    // });
   }
-
 }
