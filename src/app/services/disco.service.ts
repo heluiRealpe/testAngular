@@ -36,9 +36,10 @@ export class DiscoService {
   }
 
   borrarDisco(id: string): any {
-    // return this.http.delete(this.url, { headers: new HttpHeaders({'Content-Type': 'application/json'}), body: { id: id}}).subscribe( (result: any) => {
-    //   console.table(result);
-    // });
+    let options = { headers: new HttpHeaders({'Content-Type': 'application/json'}), body: { id: `${id}`}};
+    return this.http.delete(this.url, options).subscribe( (result: any) => {
+      console.table(result);
+    });
     // return this.http.delete(`${this.url}?id=${id}`, ).subscribe( (result: any) => {
     //   console.table(result);
     // });
