@@ -8,7 +8,7 @@ import { Observable } from 'rxjs';
 })
 export class DiscoService {
 
-  private url = 'http://localhost:3000/discos';
+  private url = 'https://heluitest.herokuapp.com/discos';
   public discos: Disco[];
 
   constructor(private http: HttpClient) {

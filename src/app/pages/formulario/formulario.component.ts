@@ -12,13 +12,13 @@ export class FormularioComponent implements OnInit {
   constructor(private apiService: DiscoService) { }
 
   anyadirDisco(id: string, titulo: string, interprete: string, anyoPublicacion: string): void {
-    let discoNew = new Disco(id, titulo, interprete, anyoPublicacion);
+    let discoNew = new Disco(Number(id), titulo, interprete, Number(anyoPublicacion));
     console.log(discoNew);
     this.apiService.añadirDisco(discoNew);
   }
 
   editDisco(id: string, titulo: string, interprete: string, anyoPublicacion: string): void {
-    let discoMod = new Disco(id, titulo, interprete, anyoPublicacion);
+    let discoMod = new Disco(Number(id), titulo, interprete, Number(anyoPublicacion));
     this.apiService.actualizarDisco(discoMod);
    }
 
